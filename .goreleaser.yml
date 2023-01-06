@@ -3,7 +3,7 @@ builds:
     main: dummy.go
     goos:
       - linux
-      - windows
+#      - windows
 #      - darwin
     goarch:
       - amd64

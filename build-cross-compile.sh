@@ -13,8 +13,8 @@ function build() {
 
 function main() {
   build "linux"
-  build "windows"
-  #build "darwin"
+#  build "windows"
+#  build "darwin"
 }
 
 main
