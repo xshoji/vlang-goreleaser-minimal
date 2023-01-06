@@ -24,7 +24,7 @@ Options:
 
 ```
 # Create new tag and push ( release job is started )
-git tag v0.0.1 && git push --tags
+git tag v0.0.1 -m "Release beta version." && git push --tags
 
 # Delete tag
 echo "v0.0.1" |xargs -I{} bash -c "git tag -d {} && git push origin :{}"
