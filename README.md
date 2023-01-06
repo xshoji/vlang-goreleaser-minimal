@@ -1,2 +1,2 @@
-# minimal-vlang-goreleaser
+# vlang-goreleaser-minimal
 Minimal goreleaser settings by github action for vlang.
