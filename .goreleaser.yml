@@ -2,9 +2,9 @@ builds:
   -
     main: dummy.go
     goos:
-      - linux
+#      - linux
 #      - windows
-#      - darwin
+      - darwin
     goarch:
       - amd64
     binary: app
