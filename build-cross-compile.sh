@@ -12,7 +12,8 @@ function build() {
 }
 
 function main() {
-  build "darwin"
+  #build "darwin"
+  build "linux"
   build "windows"
 }
 
