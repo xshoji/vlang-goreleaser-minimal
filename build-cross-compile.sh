@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -uex
+set -uex
 
 readonly DIST_DIR="dist"
 readonly BINARY_NAME="app"
