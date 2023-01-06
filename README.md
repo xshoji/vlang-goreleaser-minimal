@@ -20,6 +20,12 @@ Options:
 [Vweb] Running app on http://localhost:8080/
 ```
 
+# Release
+
+```
+
+```
+
 # References
 
 > Setting Up GitHub Actions for V ｜ The V Programming Language  
