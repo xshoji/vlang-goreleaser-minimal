@@ -1,15 +1,20 @@
 builds:
   -
     main: dummy.go
+    goos:
+      - windows
+      - darwin
+      - linux
     goarch:
       - amd64
-    binary: dummy
+    binary: app
     hooks:
-      post: sh build-cross-release.sh
+      post: sh build-cross-compile.sh
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
   - id: main
     name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
+#    name_template: '{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     replacements:
       darwin: macOS
       linux: Linux

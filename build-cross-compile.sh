@@ -1,17 +1,20 @@
 #!/bin/bash
 
+#set -uex
+
+readonly DIST_DIR="dist"
+readonly BINARY_NAME="app"
+
 function build() {
-  local outputDir="${1}"
-  local binaryName="${2}"
-  local os="${3}"
-  mkdir -p "${outputDir}"
-  v -o "${outputDir}/${binaryName}" -os "${os}" -message-limit 0 main.v 
+  local os="${1}"
+  local outputDir=$(ls -d "${DIST_DIR}"/*${1}* |head -n 1)
+  v -o "${outputDir}/${BINARY_NAME}" -os "${os}" -message-limit 0 main.v
 }
 
 function main() {
-  build "dist/darwin_amd64"  "app" "macos"
-  build "dist/linux_amd64"   "app" "linux"
-  build "dist/windows_amd64" "app" "windows"
+  build "darwin"
+  #build "linux"
+  build "windows"
 }
 
 main
