@@ -35,16 +35,13 @@ git tag v0.0.1-linux -m "Release beta version." && git push --tags
 
 # Release for macOS and windows
 git tag v0.0.1-macos-windows -m "Release beta version." && git push --tags
-```
 
-```
-# Create new tag and push ( release job is started )
-git tag v0.0.1-linux -m "Release beta version." && git push --tags
+
 
 # Delete tag
 echo "v0.0.1-linux" |xargs -I{} bash -c "git tag -d {} && git push origin :{}"
 
-# Delete tag and create new tag and push
+# Delete tag and recreate new tag and push
 echo "v0.0.2-linux" |xargs -I{} bash -c "git tag -d {} && git push origin :{}; git tag {} -m \"Test github action.\"; git push --tags"
 ```
 
