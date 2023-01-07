@@ -46,7 +46,7 @@ jobs:
         run: brew install vlang
       -
         name: Install Go
-        run: brew install go@1.18
+        run: brew install go
       -
         name: Checkout
         uses: actions/checkout@v2
