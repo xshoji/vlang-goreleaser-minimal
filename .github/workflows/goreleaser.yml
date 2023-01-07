@@ -38,13 +38,15 @@ jobs:
 
   goreleaser-macos:
     runs-on: macos-12
+    # installing-software-on-macos-runners - GitHub ホステッド ランナーのカスタマイズ - GitHub Docs
+    # https://docs.github.com/ja/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-macos-runners
     steps:
       -
         name: Install V
         run: brew install vlang
       -
         name: Install Go
-        run: brew install go@1.19
+        run: brew install go@1.18
       -
         name: Checkout
         uses: actions/checkout@v2
