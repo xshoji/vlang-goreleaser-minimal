@@ -43,3 +43,6 @@ main
 
 ### Other ###
 /workspace/
+
+### goreleaser ###
+.goreleaser.yml
