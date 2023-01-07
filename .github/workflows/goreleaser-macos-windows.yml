@@ -5,46 +5,6 @@ on:
     tags: #vX.X.Xというタグのときにリリースする
       - "v[0-9]+.[0-9]+.[0-9]+-macos-windows"
 jobs:
-  goreleaser-linux:
-    # choosing-github-hosted-runners - Workflow syntax for GitHub Actions - GitHub Docs
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#choosing-github-hosted-runners
-    runs-on: ubuntu-18.04
-    steps:
-      -
-        name: Install V
-        uses: vlang/setup-v@v1
-        with:
-          check-latest: true
-      -
-        name: Install Go
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.19
-      -
-        name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      -
-        name: Put goreleaser.yml
-        run: cp goreleaser-linux.yml .goreleaser.yml
-      -
-        name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
-        with:
-          version: latest
-          args: release --rm-dist
-        env:
-          # environment-variables - GitHub Actions - GoReleaser https://goreleaser.com/ci/actions/#environment-variables
-          # i-3 - GitHub Actionsの使い方 | 純規の暇人趣味ブログ https://jyn.jp/github-actions-usage/#i-3
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Upload build result
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: output/test/code-coverage.html
-
   goreleaser-macos-windows:
     runs-on: macos-12
     # installing-software-on-macos-runners - GitHub ホステッド ランナーのカスタマイズ - GitHub Docs
