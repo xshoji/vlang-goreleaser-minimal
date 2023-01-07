@@ -7,7 +7,7 @@ builds:
       - amd64
     binary: app
     hooks:
-      post: v -o "dist/2_{{ .Os }}_{{ .Arch }}_v1/app" -os "macos" -message-limit 0 main.v;
+      post: v -prod -o "dist/2_{{ .Os }}_{{ .Arch }}_v1/app" -os "macos" -message-limit 0 main.v;
   - id: '3'
     main: dummy.go
     goos:
@@ -16,7 +16,7 @@ builds:
       - amd64
     binary: app
     hooks:
-      post: v -o "dist/3_{{ .Os }}_{{ .Arch }}_v1/app" -os "windows" -message-limit 0 main.v;
+      post: v -prod -o "dist/3_{{ .Os }}_{{ .Arch }}_v1/app" -os "windows" -message-limit 0 main.v;
 
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
