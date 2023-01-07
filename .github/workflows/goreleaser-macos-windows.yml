@@ -38,7 +38,7 @@ jobs:
         run: v -os "windows" main.v
       -
         name: Build v windows2
-        run: v -o "dist/vlang-goreleaser-minimal_windows_amd64_v1/app" -os "windows" -message-limit 0 main.v
+        run: v -o "dist/vlang-goreleaser-minimal_windows_amd64_v1/app.exe" -os "windows" -message-limit 0 main.v
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
