@@ -66,7 +66,7 @@ jobs:
         run:  mkdir -p dist/vlang-goreleaser-minimal_darwin_amd64_v1
       -
         name: Build v apps
-        run: v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "macos" -message-limit 0 main.v
+        run: v main.v
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
