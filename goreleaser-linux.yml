@@ -1,13 +1,13 @@
 builds:
-  - main: dummy.go
+  - id: build for Linux
+    main: dummy.go
     goos:
       - linux
     goarch:
       - amd64
     binary: app
     hooks:
-      post: | 
-        v -o "dist/{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}_v1/app" -os "linux" -message-limit 0 main.v;
+      post: v -o "dist/{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}_v1/app" -os "linux" -message-limit 0 main.v;
 
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
