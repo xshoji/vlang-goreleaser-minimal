@@ -26,11 +26,14 @@ jobs:
         with:
           fetch-depth: 0
       -
+        name: Copy goreleaser.yml
+        run: cp goreleaser-linux.yml .goreleaser.yml
+      -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
-          args: release --rm-dist
+          args: release --rm-dist --id 
         env:
           # environment-variables - GitHub Actions - GoReleaser https://goreleaser.com/ci/actions/#environment-variables
           # i-3 - GitHub Actionsの使い方 | 純規の暇人趣味ブログ https://jyn.jp/github-actions-usage/#i-3

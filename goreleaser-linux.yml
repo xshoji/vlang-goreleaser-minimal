@@ -2,15 +2,13 @@ builds:
   - main: dummy.go
     goos:
       - linux
-      - darwin
-    #      - windows
     goarch:
       - amd64
     binary: app
     hooks:
       post: | 
         v -o "dist/vlang-goreleaser-minimal_linux_amd64_v1/app" -os "linux" -message-limit 0 main.v
-        v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "macos" -message-limit 0 main.v
+
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
   - id: main
@@ -22,6 +20,7 @@ archives:
       #     いらないので無効化
       #     386: i386
       amd64: x86_64
+
 # プロジェクトの完全なビルドを生成したいが、何も検証したくないし、どこかにアップロードもしたくないという場合があります。
 # GoReleaser は --snapshot フラグとスナップショット カスタマイズ セクションでこれをサポートします。
 # snapshots - Snapshots - GoReleaser https://goreleaser.com/customization/snapshots/?h=snapshot#snapshots
