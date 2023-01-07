@@ -14,6 +14,9 @@ jobs:
         name: Install V
         run: brew install vlang
       -
+        name: Install mingw-w64 ( to build for windows )
+        run: brew install mingw-w64
+      -
         name: Install Go
         run: brew install go@1.18
       -
@@ -30,9 +33,6 @@ jobs:
       -
         name: Update v
         run: v up
-      -
-        name: Show v version
-        run: v version
       -
         name: Build v windows
         run: v -os "windows" main.v
