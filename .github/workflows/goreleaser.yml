@@ -59,10 +59,14 @@ jobs:
         name: Put goreleaser.yml
         run: cp goreleaser-macos.yml .goreleaser.yml
       -
+        name: Show v help
+        run: v help
+      -
+        name: Make directory
+        run:  mkdir -p dist/vlang-goreleaser-minimal_darwin_amd64_v1
+      -
         name: Build v apps
-        run: |
-          mkdir -p dist/vlang-goreleaser-minimal_darwin_amd64_v1
-          v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "macos" -message-limit 0 main.v
+        run: v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "macos" -message-limit 0 main.v
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v2
