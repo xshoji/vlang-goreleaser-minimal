@@ -1,6 +1,5 @@
 builds:
-  - id: build for Linux
-    main: dummy.go
+  - main: dummy.go
     goos:
       - linux
     goarch:

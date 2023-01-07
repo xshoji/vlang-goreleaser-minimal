@@ -1,6 +1,5 @@
 builds:
-  - id: build for macOS
-    main: dummy.go
+  - main: dummy.go
     goos:
       - darwin
     goarch:
@@ -8,8 +7,7 @@ builds:
     binary: app
     hooks:
       post: v -o "dist/{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}_v1/app" -os "macos" -message-limit 0 main.v;
-  - id: build for windows
-    main: dummy.go
+  - main: dummy.go
     goos:
       - windows
     goarch:
