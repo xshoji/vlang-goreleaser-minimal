@@ -43,3 +43,9 @@ echo "v0.0.2" |xargs -I{} bash -c "git tag -d {} && git push origin :{}; git tag
 
 > ［GitHub］Actionsの動作確認時は忘れずにACTIONS_RUNNER_DEBUGとACTIONS_STEP_DEBUGを設定しよう | DevelopersIO  
 > https://dev.classmethod.jp/articles/set-secrets-before-actions-test/  
+
+> How vlang compile static binary? - Stack Overflow  
+> https://stackoverflow.com/questions/72855645/how-vlang-compile-static-binary  
+
+> v/Dockerfile.alpine at master · vlang/v  
+> https://github.com/vlang/v/blob/master/Dockerfile.alpine  
