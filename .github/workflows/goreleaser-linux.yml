@@ -38,9 +38,3 @@ jobs:
           # environment-variables - GitHub Actions - GoReleaser https://goreleaser.com/ci/actions/#environment-variables
           # i-3 - GitHub Actionsの使い方 | 純規の暇人趣味ブログ https://jyn.jp/github-actions-usage/#i-3
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      -
-        name: Upload build result
-        uses: actions/upload-artifact@v3
-        with:
-          name: code-coverage-report
-          path: output/test/code-coverage.html
