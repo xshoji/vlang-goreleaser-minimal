@@ -8,7 +8,7 @@ builds:
       - amd64
     binary: app
     hooks:
-      post: v -o "dist/vlang-goreleaser-minimal_linux_amd64_v1/app" -os "linux" -message-limit 0 main.v
+      post: v -cflag -o "dist/vlang-goreleaser-minimal_linux_amd64_v1/app" -os "linux" -message-limit 0 main.v
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
   - id: main
