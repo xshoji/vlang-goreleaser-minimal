@@ -14,9 +14,9 @@ archives:
   - id: main
     name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
     replacements:
-      linux: Linux
-      darwin: macOS
-      windows: Windows
+      linux: linux
+      darwin: macos
+      windows: windows
       #     いらないので無効化
       #     386: i386
       amd64: x86_64
