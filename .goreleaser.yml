@@ -8,14 +8,7 @@ builds:
       - amd64
     binary: app
     hooks:
-      post: |
-        set -uex
-        readonly DIST_DIR="dist"
-        readonly BINARY_NAME="app"
-        function build() { v -o "dist/$(ls -d "${DIST_DIR}"/*${1}* |head -n 1)" -os "${1}" -message-limit 0 main.v }
-        build "linux"
-        #  build "windows"
-        #  build "darwin"
+      post: v -o "dist/vlang-goreleaser-minimal_darwin_amd64" -os "linux" -message-limit 0 main.v
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
   - id: main
