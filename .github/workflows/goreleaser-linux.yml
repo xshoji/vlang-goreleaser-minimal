@@ -3,7 +3,7 @@ name: goreleaser
 on:
   push:
     tags: #vX.X.Xというタグのときにリリースする
-      - "v[0-9]+.[0-9]+.[0-9]+"
+      - "v[0-9]+.[0-9]+.[0-9]+-linux"
 jobs:
   goreleaser-linux:
     # choosing-github-hosted-runners - Workflow syntax for GitHub Actions - GitHub Docs
@@ -38,8 +38,14 @@ jobs:
           # environment-variables - GitHub Actions - GoReleaser https://goreleaser.com/ci/actions/#environment-variables
           # i-3 - GitHub Actionsの使い方 | 純規の暇人趣味ブログ https://jyn.jp/github-actions-usage/#i-3
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      -
+        name: Upload build result
+        uses: actions/upload-artifact@v3
+        with:
+          name: code-coverage-report
+          path: output/test/code-coverage.html
 
-  goreleaser-macos:
+  goreleaser-macos-windows:
     runs-on: macos-12
     # installing-software-on-macos-runners - GitHub ホステッド ランナーのカスタマイズ - GitHub Docs
     # https://docs.github.com/ja/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-macos-runners
@@ -57,7 +63,7 @@ jobs:
           fetch-depth: 0
       -
         name: Put goreleaser.yml
-        run: cp goreleaser-macos.yml .goreleaser.yml
+        run: cp goreleaser-macos-windows.yml .goreleaser.yml
       -
         name: Show v version
         run: v version

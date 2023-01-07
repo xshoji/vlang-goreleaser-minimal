@@ -4,6 +4,13 @@ Minimal goreleaser settings by github action for vlang.
 
 # Usage
 
+In case of Linux, needs install "musl-dev".
+
+```
+# ubuntu
+apt-get install musl-dev
+```
+
 ```
 ./app -h
 Usage:  [options] [ARGS]

@@ -2,12 +2,14 @@ builds:
   - main: dummy.go
     goos:
       - darwin
+      - windows
     goarch:
       - amd64
     binary: app
     hooks:
-      post: | 
+      post: |
         v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "macos" -message-limit 0 main.v
+        v -o "dist/vlang-goreleaser-minimal_darwin_amd64_v1/app" -os "windows" -message-limit 0 main.v
 
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
