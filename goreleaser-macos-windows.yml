@@ -14,7 +14,7 @@ builds:
       - windows
     goarch:
       - amd64
-    binary: app.exe
+    binary: app
     hooks:
       post: v -o "dist/3_{{ .Os }}_{{ .Arch }}_v1/app" -os "windows" -message-limit 0 main.v;
 
