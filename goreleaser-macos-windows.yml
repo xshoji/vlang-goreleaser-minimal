@@ -1,5 +1,5 @@
 builds:
-  - id: '{{ .ProjectName }}-m'
+  - id: '2'
     main: dummy.go
     goos:
       - darwin
@@ -7,8 +7,8 @@ builds:
       - amd64
     binary: app
     hooks:
-      post: v -o "dist/{{ .ProjectName }}-m_{{ .Os }}_{{ .Arch }}_v1/app" -os "macos" -message-limit 0 main.v;
-  - id: '{{ .ProjectName }}-w'
+      post: v -o "dist/2_{{ .Os }}_{{ .Arch }}_v1/app" -os "macos" -message-limit 0 main.v;
+  - id: '3'
     main: dummy.go
     goos:
       - windows
@@ -16,7 +16,7 @@ builds:
       - amd64
     binary: app.exe
     hooks:
-      post: v -o "dist/{{ .ProjectName }}-w_{{ .Os }}_{{ .Arch }}_v1/app" -os "windows" -message-limit 0 main.v;
+      post: v -o "dist/3_{{ .Os }}_{{ .Arch }}_v1/app" -os "windows" -message-limit 0 main.v;
 
 # archives.replacements - Deprecation notices - GoReleaser https://goreleaser.com/deprecations/?h=replacements#archivesreplacements
 archives:
