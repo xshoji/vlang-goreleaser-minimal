@@ -28,6 +28,9 @@ git tag v0.0.1 -m "Release beta version." && git push --tags
 
 # Delete tag
 echo "v0.0.1" |xargs -I{} bash -c "git tag -d {} && git push origin :{}"
+
+# Delete tag and create new tag and push
+echo "v0.0.2" |xargs -I{} bash -c "git tag -d {} && git push origin :{}; git tag {} -m \"Test github action.\"; git push --tags"
 ```
 
 # References
@@ -37,3 +40,6 @@ echo "v0.0.1" |xargs -I{} bash -c "git tag -d {} && git push origin :{}"
 
 > Shipping Rust Binaries with GoReleaser ｜ by Dotan Nahum ｜ Medium  
 > https://jondot.medium.com/shipping-rust-binaries-with-goreleaser-d5aa42a46be0  
+
+> ［GitHub］Actionsの動作確認時は忘れずにACTIONS_RUNNER_DEBUGとACTIONS_STEP_DEBUGを設定しよう | DevelopersIO  
+> https://dev.classmethod.jp/articles/set-secrets-before-actions-test/  
