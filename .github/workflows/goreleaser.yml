@@ -62,6 +62,15 @@ jobs:
         name: Show v help
         run: v help
       -
+        name: Show v version
+        run: v version
+      -
+        name: Show v up
+        run: v up
+      -
+        name: Show v version
+        run: v version
+      -
         name: Make directory
         run:  mkdir -p dist/vlang-goreleaser-minimal_darwin_amd64_v1
       -
