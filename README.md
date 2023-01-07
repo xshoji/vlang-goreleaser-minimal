@@ -42,7 +42,7 @@ git tag v0.0.1-macos-windows -m "Release beta version." && git push --tags
 echo "v0.0.1-linux" |xargs -I{} bash -c "git tag -d {} && git push origin :{}"
 
 # Delete tag and recreate new tag and push
-echo "v0.0.2-linux" |xargs -I{} bash -c "git tag -d {} && git push origin :{}; git tag {} -m \"Test github action.\"; git push --tags"
+echo "v0.0.2-linux" |xargs -I{} bash -c "git tag -d {} && git push origin :{}; git tag {} -m \"Release beta version.\"; git push --tags"
 ```
 
 # References
