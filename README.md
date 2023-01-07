@@ -30,6 +30,14 @@ Options:
 # Release
 
 ```
+# Release for linux
+git tag v0.0.1-linux -m "Release beta version." && git push --tags
+
+# Release for macOS and windows
+git tag v0.0.1-macos-windows -m "Release beta version." && git push --tags
+```
+
+```
 # Create new tag and push ( release job is started )
 git tag v0.0.1-linux -m "Release beta version." && git push --tags
 
