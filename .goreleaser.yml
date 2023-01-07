@@ -1,26 +1,18 @@
 builds:
-  -
-    main: dummy.go
+  - main: dummy.go
     goos:
       - linux
-#      - windows
-#      - darwin
+    #      - windows
+    #      - darwin
     goarch:
       - amd64
     binary: app
     hooks:
       post: |
-        #!/bin/bash
-        set -uex        
+        set -uex
         readonly DIST_DIR="dist"
         readonly BINARY_NAME="app"
-        
-        function build() {
-          local os="${1}"
-          local outputDir=$(ls -d "${DIST_DIR}"/*${1}* |head -n 1)
-          v -o "${outputDir}/${BINARY_NAME}" -os "${os}" -message-limit 0 main.v
-        }
-        
+        function build() { v -o "dist/$(ls -d "${DIST_DIR}"/*${1}* |head -n 1)" -os "${1}" -message-limit 0 main.v }
         build "linux"
         #  build "windows"
         #  build "darwin"
@@ -32,8 +24,8 @@ archives:
       linux: Linux
       windows: Windows
       darwin: macOS
-#     いらないので無効化
-#     386: i386
+      #     いらないので無効化
+      #     386: i386
       amd64: x86_64
 # プロジェクトの完全なビルドを生成したいが、何も検証したくないし、どこかにアップロードもしたくないという場合があります。
 # GoReleaser は --snapshot フラグとスナップショット カスタマイズ セクションでこれをサポートします。
