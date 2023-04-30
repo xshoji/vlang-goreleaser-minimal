@@ -6,9 +6,11 @@ on:
       - "v[0-9]+.[0-9]+.[0-9]+-macos-windows"
 jobs:
   goreleaser-macos-windows:
-    runs-on: macos-12
     # installing-software-on-macos-runners - GitHub ホステッド ランナーのカスタマイズ - GitHub Docs
     # https://docs.github.com/ja/actions/using-github-hosted-runners/customizing-github-hosted-runners#installing-software-on-macos-runners
+    runs-on: macos-12
+    permissions:
+      contents: write # これがないとリリースを作成できない
     steps:
       -
         name: Install V
@@ -27,10 +29,12 @@ jobs:
         run: brew install mingw-w64
       -
         name: Install Go
-        run: brew install go@1.18
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.19
       -
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
       -
@@ -38,7 +42,7 @@ jobs:
         run: cp goreleaser-macos-windows.yml .goreleaser.yml
       -
         name: Run GoReleaser
-        uses: goreleaser/goreleaser-action@v2
+        uses: goreleaser/goreleaser-action@v4 
         with:
           version: latest
           args: release --rm-dist
